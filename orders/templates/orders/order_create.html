@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+
+            <div class="checkout__form">
+                <h4>Billing Details</h4>
+                {# <form action="#"> #}
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <form action="." method="post" class="order-form">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <label for="">First name</label>
+                                            {{ form.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="checkout__input">
+                                            <label for="">Last name</label>
+                                            {{ form.last_name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkout__input">
+                                    <label for="">Email</label>
+                                    {{ form.email }}
+                                </div>
+                                <div class="checkout__input">
+                                    <label for="">Address</label>
+                                    {{ form.address }}
+                                </div>
+                                <div class="checkout__input">
+                                    <label for="">City</label>
+                                    {{ form.city }}
+                                </div>
+                                <div class="checkout__input">
+                                    <label for="">Postal code</label>
+                                    {{ form.postal_code }}
+                                </div>
+                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                            </form>
+                        </div>
+
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+
+                                <h4>Your Order</h4>
+                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <ul>
+                                    {% for item in cart %}
+                                        <li>
+                                            {{ item.quantity }}x {{ item.product.name }}
+                                            <span> ${{ item.total_price|floatformat:"2" }}</span>
+                                        </li>
+                                    {% endfor %}
+                                    {% if cart.coupon %}
+                                        <li>
+                                            "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)
+                                            <span>- ${{ cart.get_discount|floatformat:"2" }}</span>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+
+                                <div class="checkout__order__total">
+                                    Total <span>${{ cart.get_total_price_after_discount|floatformat:"2" }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                {# </form> #}
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+{% endblock content %}
