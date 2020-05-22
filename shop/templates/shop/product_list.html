@@ -175,26 +175,27 @@
                         </div>
                     {% endfor %}
                 </div>
-                <div class="pagination">
-
-                    <span class="step-links">
-                        {% if product_list.has_previous %}
-                            <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.first_page_number %}"><i class="fa fa-arrow-left"></i></a>
-                        {% endif %}
-
-                        {% for num in product_list.paginator.page_range %}
-                            {% if product_list.number == num %}
-                                <a class="btn btn-outline-success active" href="?{% url_replace request 'page' product_list.page_number %}{{ num }}">{{ num }}</a>
-                            {% elif num > product_list.number|add:'-3' and num < product_list.number|add:'3' %}
-                                <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.page_number %}{{ num }}">{{ num }}</a>
+                {% if product_list.has_next or product_list.has_previous %}
+                    <div class="pagination">
+                        <span class="step-links">
+                            {% if product_list.has_previous %}
+                                <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.first_page_number %}"><i class="fa fa-arrow-left"></i></a>
                             {% endif %}
-                        {% endfor %}
 
-                        {% if product_list.has_next %}
-                            <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.page_number %}{{ product_list.paginator.num_pages }}"><i class="fa fa-arrow-right"></i></a>
-                        {% endif %}
-                    </span>
-                </div>
+                            {% for num in product_list.paginator.page_range %}
+                                {% if product_list.number == num %}
+                                    <a class="btn btn-outline-success active" href="?{% url_replace request 'page' product_list.page_number %}{{ num }}">{{ num }}</a>
+                                {% elif num > product_list.number|add:'-3' and num < product_list.number|add:'3' %}
+                                    <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.page_number %}{{ num }}">{{ num }}</a>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if product_list.has_next %}
+                                <a class="btn btn-outline-success" href="?{% url_replace request 'page' product_list.page_number %}{{ product_list.paginator.num_pages }}"><i class="fa fa-arrow-right"></i></a>
+                            {% endif %}
+                        </span>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
