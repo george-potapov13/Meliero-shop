@@ -55,7 +55,7 @@ class Product(models.Model):
                                  on_delete=models.CASCADE)
     color = models.CharField(max_length=10, choices=COLOR_CHOICES)
     size = models.CharField(max_length=5, choices=SIZE_CHOICES)
-    type = models.CharField(max_length=10, choices=TYPE_CHOICES)
+    sex_type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     image = models.ImageField(upload_to="images")
     price = models.DecimalField(max_digits=10,
                                 decimal_places=2)

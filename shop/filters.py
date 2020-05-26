@@ -28,7 +28,7 @@ TYPE_CHOICES = (
 
 class ProductFilter(django_filters.FilterSet):
 
-    type = django_filters.MultipleChoiceFilter(
+    sex_type = django_filters.MultipleChoiceFilter(
         choices=TYPE_CHOICES,
         widget=forms.CheckboxSelectMultiple)
     color = django_filters.MultipleChoiceFilter(
@@ -40,4 +40,4 @@ class ProductFilter(django_filters.FilterSet):
 
     class Meta:
         model = Product
-        fields = ('type', 'color', 'size')
+        fields = ('sex_type', 'color', 'size')
