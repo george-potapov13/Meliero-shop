@@ -148,7 +148,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DROPBOX_OAUTH2_TOKEN = os.environ.get('SHOP_DROPBOX_TOKEN')
 DROPBOX_ROOT_PATH = '/'
 
-BROKER_POOL_LIMIT = 3
-BROKER_URL = os.environ.get('CLOUDAMQP_URL')
+CELERY_BROKER_POOL_LIMIT = 3
+CELERY_BROKER_URL = os.environ.get('CLOUDAMQP_URL')
 
 django_heroku.settings(locals())
