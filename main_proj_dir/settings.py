@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SHOP_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('SHOP_DEBUG') == 'True')
 
-ALLOWED_HOSTS = ['shopproject13.herokuapp.com']
+ALLOWED_HOSTS = ['shopproject13.herokuapp.com', 'meliero.shop']
 
 
 # Application definition

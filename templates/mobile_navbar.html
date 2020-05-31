@@ -7,9 +7,16 @@
     <div class="humberger__menu__cart">
         <ul>
             {# <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> #}
-            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>{{ total_items }}</span></a></li>
         </ul>
-        <div class="header__cart__price">item: <span>$150.00</span></div>
+        {% with total_items=cart|length %}
+            {# {% if cart|length > 0 %} #}
+            <ul>
+                <li><a href="{% url "cart:cart_detail" %}"><i class="fa fa-shopping-bag"></i> <span>{{ total_items }}</span></a></li>
+            </ul>
+            <div class="header__cart__price"><span>${{ cart.get_total_price }}</span></div>
+            {# {% endif %} #}
+        {% endwith %}
     </div>
     {% comment %}
     <div class="humberger__menu__widget">
@@ -26,7 +33,7 @@
     {% endcomment %}
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="./index.html">Home</a></li>
+            <li class="active"><a href="/">Home</a></li>
             <li><a href="./shop-grid.html">Shop</a></li>
             <li><a href="./blog.html">About us</a></li>
             <li><a href="./contact.html">Contact</a></li>
@@ -34,14 +41,12 @@
     </nav>
     <div id="mobile-menu-wrap"></div>
     <div class="header__top__right__social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
         <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
     </div>
     <div class="humberger__menu__contact">
         <ul>
-            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+            <li><i class="fa fa-envelope"></i> bayjel13@gmail.com</li>
             <li>Free Shipping for all Order of $99</li>
         </ul>
     </div>

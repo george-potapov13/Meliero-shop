@@ -4,6 +4,7 @@ from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from coupons.forms import CouponApplyForm
+from django.contrib import messages
 
 
 @require_POST
@@ -28,13 +29,16 @@ def cart_remove(request, product_id):
 
 def cart_detail(request):
     cart = Cart(request)
-    for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(
-            initial={'quantity': item['quantity'],
-                     'update': True})
-    coupon_apply_form = CouponApplyForm()
-
-    return render(request,
-                  'cart/cart_detail.html',
-                  {'cart': cart,
-                   'coupon_apply_form': coupon_apply_form})
+    if cart.__len__() > 0:
+        for item in cart:
+            item['update_quantity_form'] = CartAddProductForm(
+                initial={'quantity': item['quantity'],
+                         'update': True})
+        coupon_apply_form = CouponApplyForm()
+        return render(request,
+                      'cart/cart_detail.html',
+                      {'cart': cart,
+                       'coupon_apply_form': coupon_apply_form})
+    else:
+        messages.success(request, "Your aint got products in shoping cart")
+        return redirect("/")
