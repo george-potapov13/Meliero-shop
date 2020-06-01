@@ -48,14 +48,3 @@ def product_detail(request, id, slug):
     }
     template_name = 'shop/product_detail.html'
     return render(request, template_name, context)
-
-
-'''
->>> min = Product.objects.all().aggregate(Min('price'))
->>> min_price = 0
->>> for i in min:
-...     min_price += min[i]
-...
->>> print(min_price)
-100
-'''

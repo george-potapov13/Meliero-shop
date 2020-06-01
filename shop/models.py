@@ -39,8 +39,8 @@ SIZE_CHOICES = (
 
 
 TYPE_CHOICES = (
-    ('Male', 'Male'),
-    ('Female', 'Female'),
+    ('Male', 'Мужской'),
+    ('Female', 'Женский'),
 )
 
 

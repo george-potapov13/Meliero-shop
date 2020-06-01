@@ -1,5 +1,6 @@
 from django import template
 from shop.models import Category
+from django.contrib import messages
 
 register = template.Library()
 

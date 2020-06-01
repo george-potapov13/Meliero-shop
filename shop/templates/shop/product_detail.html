@@ -20,16 +20,19 @@
                         <h3>{{ product.name }}</h3>
                         <h5>{{ product.category }}</h5>
                         <div class="product__details__price">${{ product.price }}</div>
-                        <h6>size: {{ product.size }}</h6><h6>color: {{ product.color }}</h6>
-                        <p>{{ product.description }}</p>
+                        <h4>Размер: {{ product.size }}</h4>
+                        <h4 class="mt-3">Цвет: {{ product.color }}</h4>
+
+                        <p class="mt-4">{{ product.description }}</p>
 
                         <form action="{% url "cart:cart_add" product.id %}" method="post">
-                            {{ cart_product_form|crispy }}
+                            {{ cart_product_form.quantity }} <h4 class="pt-2">колличество</h4>
+                            <br>
+                            <br>
                             {% csrf_token %}
-                            <input class="primary-btn" type="submit" value="Add to cart">
-                            <a href="/" class="primary-btn"> Return </a>
+                            <input class="primary-btn" type="submit" value="Добавить в корзину">
+                            <a href="/" class="primary-btn"> Возврат к покупкам </a>
                         </form>
-                        {# <a href="#" class="primary-btn">ADD TO CARD</a> #}
                     </div>
                 </div>
             </div>
