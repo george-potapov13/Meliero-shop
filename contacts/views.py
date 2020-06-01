@@ -15,7 +15,7 @@ def contact(request):
                 send_mail(subject, message, from_email, ['bayjel13@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            messages.success(request, "thank you for contact us")
+            messages.success(request, "Благодарим вас за обращение. В ближайшее время мы ответим вам на указанный адрес почты.")
             return redirect("/")
     context = {
         'form': form

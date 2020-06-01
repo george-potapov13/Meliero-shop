@@ -22,10 +22,16 @@ class Category(models.Model):
 
 
 COLOR_CHOICES = (
-    ('White', 'White'),
-    ('Black', 'Black'),
-    ('Blue', 'Blue'),
-    ('Green', 'Green')
+    ('White', 'Белый'),
+    ('Black', 'Черный'),
+    ('Blue', 'Синий'),
+    ('Green', 'Зеленый'),
+    ('Red', 'Красный'),
+    ('Yellow', 'Желтый'),
+    ('Orange', 'Оранжевый'),
+    ('Violet', 'Фиолетовый'),
+    ('Brown', 'Коричневый'),
+    ('Grey', 'Серый')
 )
 
 

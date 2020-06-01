@@ -28,7 +28,7 @@ def order_create(request):
                     # launch asynchronous task
                     order_created.delay(order.id)
                     messages.success(
-                        request, 'Your order has been successfully send. we have send you a later.')
+                        request, 'Ваш заказ успешно зарегистрирован. Мы отправили вам письмо с номером заказа на адрес почты который вы указали при заполнении формы.')
                     return redirect("/")
         else:
             form = OrderCreateForm()
@@ -37,5 +37,5 @@ def order_create(request):
                       {'cart': cart, 'form': form})
     else:
         messages.success(
-                        request, 'You aint got products in cart to proceed the order')
+                        request, 'Ваша корзина пуста. Для перехода по ссылке необходимо добавить товары в корзину.')
         return redirect("/")

@@ -7,7 +7,6 @@ from django.db.models import Q
 class SearchView(ListView):
     model = Product
     template_name = 'searches/search_results.html'
-    paginate_by = 12
 
     def get_queryset(self):
         query = self.request.GET.get('q')
