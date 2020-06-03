@@ -726,7 +726,7 @@ ol {
   Categories
 -----------------------*/
 
-/*.categories__item {
+.categories__item {
 	height: 270px;
 	position: relative;
 }
@@ -773,13 +773,13 @@ ol {
 .categories__slider.owl-carousel .owl-nav button.owl-next {
 	left: auto;
 	right: -35px;
-}*/
+}
 
 /*---------------------
   Featured
 -----------------------*/
 
-/*.featured {
+.featured {
 	padding-top: 80px;
 	padding-bottom: 40px;
 }
@@ -910,13 +910,13 @@ ol {
 .featured__item__text h5 {
 	color: #252525;
 	font-weight: 700;
-}*/
+}
 
 /*---------------------
   Latest Product
 -----------------------*/
 
-/*.latest-product {
+.latest-product {
 	padding-top: 80px;
 	padding-bottom: 0;
 }
@@ -984,7 +984,7 @@ ol {
 	display: block;
 	color: #252525;
 	font-weight: 700;
-}*/
+}
 
 /*---------------------
   Sidebar

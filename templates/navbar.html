@@ -2,7 +2,6 @@
 <header class="header">
     <div class="header__top">
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-6">
                     <div class="header__top__left">
@@ -34,7 +33,7 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="/">Главная</a></li>
+                        <li><a href="{% url 'shop:home_page' %}">Главная</a></li>
                         <li><a href="/">Магазин</a></li>
                         <li><a href="./blog.html">Доставка</a></li>
                         <li><a href="{% url "contacts:contact" %}">Контакты</a></li>
@@ -48,7 +47,7 @@
                         <ul>
                             <li><a href="{% url "cart:cart_detail" %}"><i class="fa fa-shopping-bag"></i> <span>{{ total_items }}</span></a></li>
                         </ul>
-                        <div class="header__cart__price"><span>${{ cart.get_total_price }}</span></div>
+                        <div class="header__cart__price"><span>{{ cart.get_total_price }} UAH</span></div>
                     {% endwith %}
                 </div>
             </div>
@@ -63,19 +62,24 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Категории</span>
+                {# {% url 'shop:product_list' as url_name %} #}
+                {# {% if request.get_full_path != url_name %} #}
+                    <div class="hero__categories">
+                        <div class="hero__categories__all keep-open">
+                            <i class="fa fa-bars"></i>
+                            <span>Категории</span>
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'shop:product_list' %}">Все</a></li>
+                            {% get_categories as categories %}
+                            {% for c in categories %}
+                                <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                            {% endfor %}
+                        </ul>
                     </div>
-                    <ul>
-                        <li><a href="{% url 'shop:product_list' %}">Все</a></li>
-                        {% get_categories as categories %}
-                        {% for c in categories %}
-                            <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                {# {% else %} #}
+                    {# <h6>Интернет-магазин одежды с доставкой по Украине</h6> #}
+                {# {% endif %} #}
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">

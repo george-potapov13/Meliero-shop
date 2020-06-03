@@ -5,6 +5,17 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .filters import ProductFilter
 
 
+def home_page(request):
+    categories = Category.objects.all()
+    latest = Product.objects.filter(available=True)
+    latest_products = latest.order_by('-created')[:8]
+    return render(request, 'shop/index.html',
+                  {
+                      'categories': categories,
+                      'latest_products': latest_products
+                  })
+
+
 def product_list(request, product_id=None, category_slug=None):
     category = None
     categories = Category.objects.all()
@@ -16,7 +27,7 @@ def product_list(request, product_id=None, category_slug=None):
         products = products.filter(category=category)
 
     product_filter = ProductFilter(request.GET, queryset=products)
-    paginator = Paginator(product_filter.qs, 12)
+    paginator = Paginator(product_filter.qs, 9)
     page = request.GET.get('page')
 
     try:
