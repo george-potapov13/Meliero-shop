@@ -50,7 +50,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_filters',
     'storages',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

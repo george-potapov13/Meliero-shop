@@ -17,6 +17,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from shop.sitemaps import ProductSitemap
+
+sitemaps = {
+    'products': ProductSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +31,7 @@ urlpatterns = [
     path('coupons/', include('coupons.urls', namespace='coupons')),
     path('search/', include('searches.urls', namespace='searches')),
     path('contact/', include('contacts.urls', namespace='contacts')),
+    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('', include('shop.urls', namespace='shop'))
 ]
 
