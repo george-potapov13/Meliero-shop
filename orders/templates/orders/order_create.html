@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% block title %}Meliero | New order{% endblock title %}
+
 {% block content %}
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
@@ -40,6 +43,10 @@
                                 <div class="checkout__input">
                                     <label for="">Индекс</label>
                                     {{ form.postal_code }}
+                                </div>
+                                <div class="checkout__input">
+                                    <label for="">№ отделения "Новой Почты"</label>
+                                    {{ form.postal_department }}
                                 </div>
                                 <button type="submit" class="site-btn">Отправить Заказ</button>
                             </form>
