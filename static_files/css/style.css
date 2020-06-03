@@ -4,6 +4,7 @@ body {
 	font-family: 'Scada', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
+	font-display: swap;
 }
 
 h1,
@@ -1138,26 +1139,30 @@ ol {
 ======================product images */
 
 .product__item__pic {
-	height: 190px;
+	/* height: 190px; */
+	height: 300px;
 	position: relative;
 	overflow: hidden;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.product__item__pic {
-		height: 260px;
+		height: 300px;
+		/*height: 260px;*/
 	}
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.product__item__pic {
-		height: 240px;
+		height: 300px;
+		/*height: 240px;*/
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.product__item__pic {
-		height: 280px;
+		height: 400px;
+		/*height: 280px;*/
 	}
 }
 
