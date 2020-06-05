@@ -740,6 +740,10 @@ ol {
 	text-align: center;
 }
 
+.categories__item h5:hover {
+	opacity: 0.9;
+}
+
 .categories__item h5 a {
 	font-size: 18px;
 	color: #1c1c1c;
@@ -1137,6 +1141,10 @@ ol {
 
 /* ===================================
 ======================product images */
+
+.product-list-item:hover {
+	opacity: 0.7;
+}
 
 .product__item__pic {
 	/* height: 190px; */

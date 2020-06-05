@@ -43,4 +43,4 @@ def cart_detail(request):
   else:
     messages.success(
         request, "Ваша корзина пуста. Добавьте товары для просмотра содержимого корзины.")
-    return redirect("/")
+    return redirect("shop:product_list")

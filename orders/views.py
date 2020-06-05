@@ -29,7 +29,7 @@ def order_create(request):
                     order_created.delay(order.id)
                     messages.success(
                         request, 'Ваш заказ успешно зарегистрирован. Мы отправили вам письмо с номером заказа на адрес почты который вы указали при заполнении формы.')
-                    return redirect("/")
+                    return redirect("shop:product_list")
         else:
             form = OrderCreateForm()
         return render(request,
@@ -37,5 +37,5 @@ def order_create(request):
                       {'cart': cart, 'form': form})
     else:
         messages.success(
-                        request, 'Ваша корзина пуста. Для перехода по ссылке необходимо добавить товары в корзину.')
-        return redirect("/")
+                        request, 'Ваша корзина пуста. Для перехода по ссылке необходимо добавить товары в корзину и подтвердить заказ.')
+        return redirect("shop:product_list")
