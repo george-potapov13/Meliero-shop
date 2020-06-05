@@ -1005,6 +1005,11 @@ ol {
 /*---------------------
   Sidebar
 -----------------------*/
+@media only screen and (max-width: 400px) {
+	.sidebar__item h4 {
+		text-align: center;
+	}
+}
 
 .sidebar__item {
 	margin-bottom: 15px;
