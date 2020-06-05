@@ -534,7 +534,7 @@ ol {
 }
 
 @media only screen and (max-width: 992px) {
-	.hero {
+	.index-img {
 		display: none;
 	}
 }
@@ -706,6 +706,12 @@ ol {
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+}
+
+@media only screen and (max-width: 992px) {
+	.hero__item {
+		padding-left: 0;
+	}
 }
 
 .hero__text span {

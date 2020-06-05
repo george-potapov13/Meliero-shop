@@ -8,7 +8,7 @@ from .filters import ProductFilter
 def home_page(request):
     categories = Category.objects.all()
     latest = Product.objects.filter(available=True)
-    latest_products = latest.order_by('-created')[:8]
+    latest_products = latest.order_by('-created')[:4]
     return render(request, 'shop/index.html',
                   {
                       'categories': categories,
@@ -16,7 +16,7 @@ def home_page(request):
                   })
 
 
-def product_list(request, product_id=None, category_slug=None):
+def product_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
