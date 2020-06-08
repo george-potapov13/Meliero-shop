@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% load shop_tags %}
+{% load thumbnail %}
 
 {% block title %}Meliero | Shop{% endblock %}
 
@@ -82,15 +83,11 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <a class="product-list-item" href="{{ product.get_absolute_url }}">
-                                    <div class="product__item__pic set-bg rounded" data-setbg="{{ product.image.url }}">
-                                        {% comment %}
-                                        <ul class="product__item__pic__hover">
-                                            <li>
-                                                <a href="{{ product.get_absolute_url }}"><i class="fa fa-shopping-cart"></i></a>
-                                            </li>
-                                        </ul>
-                                        {% endcomment %}
-                                    </div>
+
+                                    {% thumbnail product.image "270x270" as img %}
+                                        <div class="product__item__pic set-bg rounded" data-setbg="{{ img.url }}"></div>
+                                    {% endthumbnail %}
+
                                 </a>
                                 <div class="product__item__text">
                                     <h6><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h6>

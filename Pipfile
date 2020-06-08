@@ -16,6 +16,7 @@ django-heroku = "*"
 gunicorn = "*"
 dropbox = "*"
 django-storages = "*"
+sorl-thumbnail = "*"
 
 [requires]
 python_version = "3.8"

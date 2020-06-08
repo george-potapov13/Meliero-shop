@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load thumbnail %}
 
 {% block title %}Meliero | Shoping cart{% endblock title %}
 
@@ -27,7 +28,11 @@
                                         <tr>
                                             {# need to provide system to resize images #}
                                             <td class="shoping__cart__item">
-                                                <img src="{{ product.image.url }}" alt="" style="max-height: 100px; max-width: 100px;">
+
+                                                {% thumbnail product.image "100x100" as img %}
+                                                    <img src="{{ img.url }}" alt="">
+                                                {% endthumbnail %}
+
                                                 <h5>{{ product.name }}</h5>
                                             </td>
                                             <td class="shoping__cart__price">

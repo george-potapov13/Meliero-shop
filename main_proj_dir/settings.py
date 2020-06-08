@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'storages',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'sorl.thumbnail',
 ]
 
 SITE_ID = 1
