@@ -157,4 +157,6 @@ DROPBOX_ROOT_PATH = '/'
 CELERY_BROKER_POOL_LIMIT = 3
 CELERY_BROKER_URL = os.environ.get('CLOUDAMQP_URL')
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
 django_heroku.settings(locals())
