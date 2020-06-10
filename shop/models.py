@@ -37,6 +37,7 @@ COLOR_CHOICES = (
 
 
 SIZE_CHOICES = (
+    ('XS', 'XS'),
     ('S', 'S'),
     ('M', 'M'),
     ('L', 'L'),
